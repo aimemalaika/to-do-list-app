@@ -20,8 +20,6 @@ class InputTodo extends PureComponent {
     if (title.trim()) {
       addTodoProps(title);
       this.setState({ title: '' });
-    } else {
-      alert('Please write item');
     }
   };
 
