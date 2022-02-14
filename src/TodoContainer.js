@@ -66,8 +66,8 @@ class TodoContainer extends React.PureComponent {
   render() {
     const { todos } = this.state;
     return (
-      <div className="todo-container">
-        <Header />
+      <div className="container">
+        <Header className="inner" />
         <InputTodo addTodoProps={this.addTodoItem} />
         <TodosList
           todos={todos}
