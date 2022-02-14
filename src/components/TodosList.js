@@ -1,13 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import TodoItem from './TodoItem';
 
 class TodosList extends React.PureComponent {
   render() {
-    const { todos } = this.props;
+    const { todos, handleChangeProps, deleteTodoProps } = this.props;
     return (
       <ul>
         {todos.map((todo) => (
-          <li key={todo.id}>{todo.title}</li>
+          <TodoItem
+            key={todo.id}
+            todo={todo}
+            handleChangeProps={handleChangeProps}
+            deleteTodoProps={deleteTodoProps}
+          />
         ))}
       </ul>
     );
@@ -17,6 +23,8 @@ class TodosList extends React.PureComponent {
 TodosList.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   todos: PropTypes.array.isRequired,
+  handleChangeProps: PropTypes.func.isRequired,
+  deleteTodoProps: PropTypes.func.isRequired,
 };
 
 export default TodosList;
