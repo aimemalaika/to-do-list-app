@@ -26,9 +26,9 @@ class InputTodo extends PureComponent {
   render() {
     const { title } = this.state;
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input onChange={this.onChange} name="title" type="text" value={title} placeholder="Add Todo..." />
-        <button type="submit">Submit</button>
+      <form onSubmit={this.handleSubmit} className="form-container">
+        <input onChange={this.onChange} className="input-text" name="title" type="text" value={title} placeholder="Add Todo..." />
+        <button className="input-submit" type="submit">Submit</button>
       </form>
     );
   }
