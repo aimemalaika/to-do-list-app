@@ -63,6 +63,18 @@ class TodoContainer extends React.PureComponent {
     });
   };
 
+  setUpdate = (updatedTitle, id) => {
+    const { todos } = this.state;
+    const updated = todos.map((todo) => {
+      if (todo.id === id) {
+        // eslint-disable-next-line no-param-reassign
+        todo.title = updatedTitle;
+      }
+      return todo;
+    });
+    this.setState({ todos: updated });
+  }
+
   render() {
     const { todos } = this.state;
     return (
@@ -73,6 +85,7 @@ class TodoContainer extends React.PureComponent {
           todos={todos}
           handleChangeProps={this.handleChange}
           deleteTodoProps={this.delTodo}
+          setUpdate={this.setUpdate}
         />
       </div>
     );
