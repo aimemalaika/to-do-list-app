@@ -31,21 +31,16 @@ class TodoItem extends React.PureComponent {
     } else {
       editMode.display = 'none';
     }
-    const completedStyle = {
-      fontStyle: 'italic',
-      color: '#595959',
-      opacity: 0.4,
-      textDecoration: 'line-through',
-    };
     const {
       todo, handleChangeProps, deleteTodoProps, setUpdate,
     } = this.props;
     const { id, title, completed } = todo;
+    const clss = completed ? styles.completedStyle : 'normal';
     return (
       <li className={styles.item}>
         <div onDoubleClick={this.handleEditing} style={viewMode}>
           <input className={styles.checkbox} type="checkbox" onChange={() => { handleChangeProps(id); }} checked={completed} />
-          <span style={completed ? completedStyle : null}>
+          <span className={clss}>
             {title}
           </span>
           <button type="button" onClick={() => { deleteTodoProps(todo.id); }}>Delete</button>
